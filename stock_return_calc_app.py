@@ -39,7 +39,8 @@ def display_results_st(average_annual_gain, final_amount, yearly_values):
         print(f"{year}: ${value:.2f}")
 
     st.write(f"Average Annual Percent Gain: {average_annual_gain:.2f}%")
-    st.write(f"Final Dollar Amount: ${final_amount:.2f}")
+    final_dollars = f"${final_amount:,.2f}"
+    st.write(f"Final Dollar Amount: {final_dollars}")
     #st.write("Dollar Amount at the End of Each Year:")
     #for year, value in yearly_values.items():
     #    print(f"{year}: ${value:.2f}")
