@@ -11,22 +11,22 @@ def get_user_input_st():
     st.title("SP500 Stocks Return Calculator")
     st.write("This calculator's option 2 can only be used for current companies in SP500. Limit your date selection between 1990-01-01 and 2024-07-01.\nYou can make a portfolio of stocks you pick in option1 or the top 1-20 SP500 (in market-cap) in option 2.\nIf selected option2, when top5 changes over the years, portfolio is updated accordingly following the top 5.\nInital amount invested is shared equally among stocks picked.\nRebalancing equally distributes the total amount at that time.")
 
-    choice = st.text_input("Do you want to (1) input N companies or (2) hold the top N companies in the S&P 500? Enter 1 or 2: ").strip()
+    choice = st.text_input("Do you want to (1) input N companies or (2) hold the top N companies in the S&P 500? Enter 1 or 2: ", value="1").strip()
     if choice:
         if choice == '1':
-            stocks = st.text_input("Enter stock names (separated by space): ").split()
+            stocks = st.text_input("Enter stock names (separated by space): ", value="amzn aapl").split()
             num_stocks = len(stocks)
         elif choice == '2':
             stocks = None  # Will be determined dynamically
-            num_stocks = st.text_input("Enter number of companies (between 1-20): ")
+            num_stocks = st.text_input("Enter number of companies (between 1-20): ", value="5")
         else:
             raise ValueError("Invalid choice. Please enter 1 or 2.")
 
-    initial_amount = float(st.number_input("Enter the initial dollar amount: "))
-    start_date = st.text_input("Enter the start date (YYYY-MM-DD): Must be after 1990-01-01: ")
-    end_date = st.text_input("Enter the end date (YYYY-MM-DD): Must be before 2024-07-01: ")
-    monthly_amount = float(st.number_input("Enter the additional monthly amount: "))
-    rebalance_duration = int(st.number_input("Enter the rebalancing duration (1 to 4 in years): For no rebalancing enter 100"))
+    initial_amount = float(st.number_input("Enter the initial dollar amount: ", value=10000))
+    start_date = st.text_input("Enter the start date (YYYY-MM-DD): Must be after 1990-01-01: ", value="1995-01-01")
+    end_date = st.text_input("Enter the end date (YYYY-MM-DD): Must be before 2024-07-01: ", value="2024-01-01")
+    monthly_amount = float(st.number_input("Enter the additional monthly amount: ", value=500))
+    rebalance_duration = int(st.number_input("Enter the rebalancing duration (in years, eg., 2): For no rebalancing enter 100", value=5))
 
     #st.write("Your input is: ", "choice: ", choice)
     return choice, stocks, num_stocks, initial_amount, start_date, end_date, monthly_amount, rebalance_duration
