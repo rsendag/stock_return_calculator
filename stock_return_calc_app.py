@@ -9,7 +9,7 @@ st.set_page_config(layout="wide")
 def get_user_input_st():
     # Title and introductory text
     st.title("SP500 Stocks Return Calculator")
-    st.write("This calculator's option 2 can only be used for current companies in SP500. Limit your date selection between 1990-01-01 and 2024-07-01.\nYou can make a portfolio of stocks you pick in option1 or the top 1-20 SP500 (in market-cap) in option 2.\nIf selected option2, when top5 changes over the years, portfolio is updated accordingly following the top 5.\nInital amount invested is shared equally among stocks picked.\nRebalancing equally distributes the total amount at that time.")
+    st.write("This calculator's option 2 can only be used for current companies in SP500. Limit your date selection between 1980-01-01 and 2024-07-01.\nYou can make a portfolio of stocks you pick in option1 or the top 1-20 SP500 (in market-cap) in option 2.\nIf selected option2, when top5 changes over the years, portfolio is updated accordingly following the top 5.\nInital amount invested is shared equally among stocks picked.\nRebalancing equally distributes the total amount at that time.")
 
     choice = st.text_input("Do you want to (1) input N companies or (2) hold the top N companies in the S&P 500? Enter 1 or 2: ", value="1").strip()
     if choice:
